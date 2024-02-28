@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Search</title>
+     <!-- Styling code adapted from Joe Hastings (https://codepen.io/JoeHastings/pen/MOdRVm) -->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+<h1 class="page-title">Search Open Library for Titles</h1> <!-- Title -->
+<br>
+<!-- Quote container -->
+<div class="quote-container" id="quoteContainer"> 
+    <blockquote></blockquote>
+    <cite></cite>
+</div>
+
+<!-- 
+3 APIs used:
+Quote API provided by Quotable (https://api.quotable.io)
+Book search API provided by Open Library (https://openlibrary.org/developers/api)
+Google Fonts Styling API by (https://fonts.google.com): See css for which fonts 
+-->
+
+<p>Click the quote box for more quotes!</p>
+<br>
+
+<!-- Book search box -->
+<input id="input"  >
+<div style="margin-bottom: 5px;"></div>
+<button onclick="getBooks()">Find a Book</button>
+
+<!-- Button to fetch a new random quote (hidden by default) -->
+<button id="newQuoteButton" style="display: none;" onclick="fetchRandomQuote()">Get New Quote</button>
+
+<!-- Loading button (hidden by default) -->
+<button id="loadingButton" style="display: none;" disabled>Loading...</button> <!-- Loading button -->
+<br><br>
+
+<div id="output"></div>
+
+<script src="script.js"></script>
+
+<br><br><br>
+<footer><h4 class="footer-link">Make a free account with <a href="penLibrary.org" > https://openlibrary.org/</a> to make your own lists, logs, and more!</h4></footer>
+
+</body>
+</html>
