@@ -58,8 +58,6 @@ document.getElementById('input').addEventListener('keydown', function(event) {
     if (event.key === 'Enter') { // Check if the pressed key is Enter
         // Call the getBooks function
         getBooks(); // Call the getBooks function
-// Clear the search box
-document.getElementById('input').value = "";
     }
 });
 
@@ -86,9 +84,11 @@ function getBooks() {
                 (isbn ? "<a href='https://openlibrary.org/isbn/" + isbn + "' target='_blank'>" +
                         "<img src='https://covers.openlibrary.org/b/isbn/" + isbn + "-M.jpg'></a><br>" : "");            
 }
-            
             // Hide the loading button
             document.getElementById('loadingButton').style.display = 'none';
+            // Clear the search box
+            document.getElementById('input').value = "";
+            
         })
         .catch(error => {
             console.error('Error:', error);
