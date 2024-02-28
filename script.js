@@ -1,15 +1,15 @@
 // Function to fetch a random quote from the Quotable API
 function fetchRandomQuote() {
-    // Construct the URL with parameters
+    // Construct the URL with parameters <--Need this for ILS software (outside this project)
     const url = "https://api.quotable.io/random?tags=technology";
 
-    fetch(url)
-        .then(response => response.json())
+    fetch(url)  
+        .then(response => response.json()) /*Need to learn Javascript syntax */
         .then(data => {
             var quote = data.content;
             var author = data.author;
 
-            // Update the content of the quote container with the fetched quote
+            // Update content the quote container with the fetched quote
             var quoteElement = document.querySelector('.quote-container blockquote');
             quoteElement.innerHTML = quote;
 
@@ -18,7 +18,7 @@ function fetchRandomQuote() {
             authorElement.innerHTML = author;
         })
 
-        .catch(error => {
+        .catch(error => {   /* Important */
             console.error('Error:', error);
         });
 }
@@ -46,13 +46,13 @@ function fetchRandomQuote() {
 }
 */
 
-// Fetch a random quote when the page loads
+// Fetches a random quote when the page loads
 window.addEventListener('load', fetchRandomQuote);
 
-// Add click event listener to the quote container
+// Adds "click event listener" to the quote container - Add listener to defs
 document.getElementById('quoteContainer').addEventListener('click', fetchRandomQuote);
 
-// Add event listener for keydown event on input field
+// Adds event listener for "keydown event" on input field, NOTE TO SELF: keydown event = press a key, something happens
 document.getElementById('input').addEventListener('keydown', function(event) {
     // Check if the pressed key is Enter
     if (event.key === 'Enter') { // Check if the pressed key is Enter
@@ -66,10 +66,11 @@ function getBooks() {
     // Show the loading button
     document.getElementById('loadingButton').style.display = 'inline-block';
     
-    // Clear previous search result
+    // Clear previous search result 
     document.getElementById('output').innerHTML = "";
-
-    fetch("https://openlibrary.org/search.json?q=" + document.getElementById("input").value)
+    
+    // I can has concatenation? Get it? Cat?
+    fetch("https://openlibrary.org/search.json?q=" + document.getElementById("input").value) 
         .then(response => response.json())
         .then(data => {
             for (var i = 0; i < 20; i++) {
@@ -78,15 +79,16 @@ function getBooks() {
                 var isbn = data.docs[i].isbn ? data.docs[i].isbn[0] : "";
                 
                 document.getElementById("output").innerHTML += 
-                /*"<h2>" + title + "</h2>" + //Without the link - to compare for my own educational purposes*/
+                /*"<h2>" + title + "</h2>" + // Without the link - to compare for my own educational purposes*/
                 "<h2><a href='https://openlibrary.org/search?q=" + title.replace(/ /g, '+') + "' target='_blank'>" + title + "</a></h2>" +
                 "<p>Author: " + author + "</p>" +
                 (isbn ? "<a href='https://openlibrary.org/isbn/" + isbn + "' target='_blank'>" +
                         "<img src='https://covers.openlibrary.org/b/isbn/" + isbn + "-M.jpg'></a><br>" : "");            
 }
-            // Hide the loading button
+            // Hides loading button
             document.getElementById('loadingButton').style.display = 'none';
-            // Clear the search box
+            
+            // Clears the search box -- I kept putting this in the wrong place! But here it is in its proper home.
             document.getElementById('input').value = "";
             
         })
