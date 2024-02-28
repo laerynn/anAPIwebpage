@@ -85,7 +85,7 @@ function getBooks() {
                 "<h2><a href='https://openlibrary.org/search?q=" + title.replace(/ /g, '+') + "' target='_blank'>" + title + "</a></h2>" +
                 "<p>Author: " + author + "</p>" +
                 (isbn ? "<a href='https://openlibrary.org/isbn/" + isbn + "' target='_blank'>" +
-                        "<img src='http://covers.openlibrary.org/b/isbn/" + isbn + "-M.jpg'></a><br>" : "");            
+                        "<img src='https://covers.openlibrary.org/b/isbn/" + isbn + "-M.jpg'></a><br>" : "");            
 }
             
             // Hide the loading button
