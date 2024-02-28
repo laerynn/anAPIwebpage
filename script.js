@@ -16,7 +16,11 @@ function fetchRandomQuote() {
             // Update the content of the <cite> element with the author's name
             var authorElement = document.querySelector('.quote-container cite');
             authorElement.innerHTML = author;
+ 
+            // Clear the search box
+            document.getElementById('input').value = "";
         })
+
         .catch(error => {
             console.error('Error:', error);
         });
