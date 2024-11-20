@@ -1,0 +1,117 @@
+
+/* 
+Styling code adapted from Joe Hastings
+Original CodePen: https://codepen.io/JoeHastings/pen/MOdRVm
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Philosopher');
+@import url('https://fonts.googleapis.com/css?family=Livvic');
+
+body {
+    font-family: 'Philosopher', cursive; /* Font for the entire body */
+    background: #fffdf5;
+    color: #3f3f5a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0; /* Remove default margin */
+}
+
+h1 {
+    font-family: 'Philosopher', cursive; /* Font for the header */
+}
+
+.page-title {
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); /* Add shadow to the title */
+}
+
+.quote-container {
+    max-width: 600px; /* Limit the width of the quote block container */
+    background-color: #fff; /* Background color for the quote block */
+    margin: 0px; /* Add margin around the quote block */
+    padding: 20px; /* Add padding around the quote block */
+    border-radius: 10px; /* Add border radius to the quote block */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow to the quote block */
+    font-family: 'Livvic', cursive; /* Font for the quote block */
+}
+
+.quote-container p {
+    position: absolute;
+    top: -1px; /* Adjust the distance from the quote block */
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+.quote-container blockquote {
+    font-weight: 100;
+    font-size: 1.5rem;
+    line-height: 1.4;
+    position: relative;
+    margin: 0; /* Reset margin */
+    padding: 0.5rem;
+    text-align: center; /* Center-align the quote */
+    margin-bottom: 10px; /* Add margin at the bottom */
+}
+
+.quote-container blockquote:before,
+.quote-container blockquote:after {
+    position: absolute;
+    color: #f1efe6;
+    font-size: 8rem;
+    width: 4rem;
+    height: 4rem;
+}
+
+.quote-container blockquote:before {
+    content: '“';
+    left: -5rem;
+    top: -2rem;
+}
+
+.quote-container blockquote:after {
+    content: '”';
+    right: -5rem;
+    bottom: 1rem;
+}
+
+.quote-container cite {
+        line-height: 2;
+        text-align: center; /* Center-align the citation */
+        font-size: 1rem; /* Increase font size for the citation */
+        display: block; /* Ensure block-level element behavior */
+        margin: 0 auto; /* Center horizontally */
+        margin-bottom: 0; /* Remove bottom margin */
+
+@keyframes blink {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+#loadingButton {
+    margin-top: 10px; /* Adjust the margin as needed */
+    background-color: #007bff; /* Example background color */
+    color: #fff; /* Example text color */
+    border: none;
+    padding: 10px 20px; /* Example padding */
+    border-radius: 5px; /* Example border radius */
+    animation: blink 1.5s infinite; /* Blinking animation */
+}
+}
+
+/*These 2 output parts remove blue from titles in search results but keep link behavior when hovering with cursor*/
+#output a {
+    color: inherit; /* Inherit color from the parent element */
+    text-decoration: underline; /* Add underline decoration */
+}
+
+#output a:hover {
+    color: inherit; /* Inherit color from the parent element */
+    text-decoration: none; /* Remove underline on hover */
+}
+
+.footer-link {
+    font-family: 'Livvic', cursive; /* Font for the footer */
+}
