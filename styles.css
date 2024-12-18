@@ -4,55 +4,96 @@ Styling code adapted from Joe Hastings
 Original CodePen: https://codepen.io/JoeHastings/pen/MOdRVm
 */
 
-@import url('https://fonts.googleapis.com/css?family=Philosopher');  /* This was originally Special Elite in the Hasting's styling. */
-@import url('https://fonts.googleapis.com/css?family=Livvic');  /* Made sure all fonts use Open Source License to be safe */
+@import url('https://fonts.googleapis.com/css?family=Philosopher');
+@import url('https://fonts.googleapis.com/css?family=Livvic');
 
 body {
-    font-family: 'Philosopher', cursive; /* font applies to the entire body */
+    font-family: 'Philosopher', cursive; /* Font for the entire body */
     background: #fffdf5;
     color: #3f3f5a;
     display: flex;
-    flex-direction: column;  /* NOTE TO SELF: Learn more about columns and grids*/
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 0; /* removes default margin; helpful */
+    margin: 0; 
+    padding: 10px; /* Should be better => for mobile */
 }
 
 h1 {
     font-family: 'Philosopher', cursive; /* Font for the header */
+    text-align: center; /* Header text centered */
+    font-size: 2.5rem; /* Flexible size => for mobile */
 }
 
 .page-title {
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); /* adds shadow to Search Open Library for Titles */
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); /* Add shadow to the title */
 }
 
 .quote-container {
-    max-width: 600px; /* limits the width of the quote block container; important! */
-    background-color: #fff; /* bg color for the quote block */
-    margin: 0px; /* adds margin around the outside of the quote block */
-    padding: 20px; /* adds padding around the inside of the quote block */
-    border-radius: 10px; /* adds a border radius to the quote block - NOTE TO SELF: look into this more*/
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* adds shadow to the quote block box */
-    font-family: 'Livvic', cursive; /* changed this multiple times because fonts are fun */
+    max-width: 30%; /* vs 600px limit width of quote block container- This makes the container take up the full width => for mobile */
+    background-color: #fff; /* Background color for the quote block */
+    margin: 0px 10px; /* Add margin around the quote block -updated to 10 px => for mobile*/
+    padding: 20px; /* Add padding around the quote block */
+    border-radius: 10px; /* Add border radius to the quote block */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow to the quote block */
+    font-family: 'Livvic', cursive; /* Font for the quote block */
+    width: 100%; /* Ensure it is full width on mobile => for mobile */
 }
 
 .quote-container p {
     position: absolute;
-    top: -1px; /* adjusts distance from the quote block --more learning needed */
+    top: -1px; /* Adjust the distance from the quote block */
     left: 0;
     right: 0;
     margin: 0 auto;
 }
 
-.quote-container blockquote {   /*NOTE TO SELF: review these quote-container bits more closely for better understanding*/
+.quote-container blockquote {
     font-weight: 100;
     font-size: 1.5rem;
     line-height: 1.4;
     position: relative;
-    margin: 0; /* reset margin */
+    margin: 0; /* Reset margin */
     padding: 0.5rem;
-    text-align: center; /* center-aligns the quote */
-    margin-bottom: 10px; /* adds margin at the bottom */
+    text-align: center; /* Center-align the quote */
+    margin-bottom: 10px; /* Add margin at the bottom */
+    a
+}
+
+/* Mobile specific - @media means include only if certain conditions are true */
+@media (max-width: 768px) {
+    .quote-container blockquote {
+        font-size: 1.2rem; 
+    }
+
+    /* Reduced font size for citation */
+    .quote-container cite {
+        font-size: 0.9rem;
+}
+
+/* The following is all added => for mobile friendliness */
+
+    /* Adjust button size on smaller screens */
+    #loadingButton {
+        padding: 10px 15px; /* Adjust padding for mobile */
+        font-size: 1rem; /* Adjust button font size */
+    }
+
+    /* Make input fields and buttons take up more width on mobile */
+    input, button {
+        width: 90%;
+        font-size: 1rem;
+    }
+
+    /* Adjust page title size >> for mobile / smaller screens */
+    h1.page-title {
+        font-size: 2rem;
+    }
+
+    /* Adjust footer link size >> for mobile */
+    .footer-link {
+        font-size: 0.9rem;
+    }
 }
 
 .quote-container blockquote:before,
@@ -78,27 +119,27 @@ h1 {
 
 .quote-container cite {
         line-height: 2;
-        text-align: center; /* center-aligns citation */
-        font-size: 1rem; /* sizes up font for citation */
-        display: block; /* 'ensures block-level element behavior' NOTE TO SELF - needs more review */
-        margin: 0 auto; /* centers horizontally */
-        margin-bottom: 0; /* removes bottom margin */
+        text-align: center; /* Center-align the citation */
+        font-size: 1rem; /* Increase font size for the citation */
+        display: block; /* Ensure block-level element behavior */
+        margin: 0 auto; /* Center horizontally */
+        margin-bottom: 0; /* Remove bottom margin */
+}
 
-@keyframes blink {     /* how it looks = loading image turns on and off --NOTE TO SELF: Useful! review */
+@keyframes blink {
     0% { opacity: 0; }
     50% { opacity: 1; }
     100% { opacity: 0; }
 }
 
-#loadingButton {   /* loading button */
-    margin-top: 10px; /* adjusts  margin as needed */
-    background-color: #007bff; /* example background color */
-    color: #fff; /* example text color */
+#loadingButton {
+    margin-top: 10px; /* Adjust the margin as needed */
+    background-color: #007bff; /* Example background color */
+    color: #fff; /* Example text color */
     border: none;
-    padding: 10px 20px; /* example padding */
-    border-radius: 5px; /* example border radius */
-    animation: blink 1.5s infinite; /* the actual blinking animation */
-}
+    padding: 10px 20px; /* Example padding */
+    border-radius: 5px; /* Example border radius */
+    animation: blink 1.5s infinite; /* Blinking animation */
 }
 
 /*These 2 output parts remove blue from titles in search results but keep link behavior when hovering with cursor*/
@@ -114,4 +155,34 @@ h1 {
 
 .footer-link {
     font-family: 'Livvic', cursive; /* Font for the footer */
+}
+
+/* More mobile specific adjustments for screens below 480px */
+
+@media (max-width: 480px) {
+    h1.page-title {
+        font-size: 1.5rem; /* Further reduce font size */
+    }
+
+    .quote-container {
+        padding: 10px; /* Decrease padding */
+        margin: 10px auto; /* Adjust margins with auto */
+    }
+
+    .quote-container blockquote {
+        font-size: 1rem; /* Further reduce font size for quotes */
+    }
+
+    .quote-container cite {
+        font-size: 0.8rem; /* Reduce citation font size */
+    }
+
+    input, button {
+        width: 90%; /* Makes sure input and buttons are mobile-friendly */
+        font-size: 0.9rem; /* Adjust font size */
+    }
+
+    .footer-link {
+        font-size: 0.8rem; /* Further reduce footer text size */
+    }
 }
